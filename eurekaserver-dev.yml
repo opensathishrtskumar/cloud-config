@@ -8,6 +8,11 @@ application:
   port: 8761
   context: /
 
+server:
+  port: ${application.port:8761}
+  servlet:
+    context-path: ${application.context:/}
+
 eureka:
   client:
     registerWithEureka: false
