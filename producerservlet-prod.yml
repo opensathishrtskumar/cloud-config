@@ -20,7 +20,7 @@ spring:
 server:
   port: 8080
   address: 0.0.0.0
-  context-path: /producerservlet
+  context-path: /
   servlet:
     session:
       persistent: false
