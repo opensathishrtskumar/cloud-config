@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    enabled: 
+    - dev
+    - default
+
+application:
+  port: 8761
+  context: /
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
