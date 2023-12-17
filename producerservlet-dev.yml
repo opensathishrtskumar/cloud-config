@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    enabled: 
+    - dev
+    - default
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: classpath:/static,classpath:/templates
+
+  security:
+    user:
+      name: admin
+      password: admin123
+      roles: ADMIN
+
+#eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/eureka
+
+server:
+  port: 8080
+  address: 0.0.0.0
+  context-path: /producerservlet
+  servlet:
+    session:
+      persistent: false
+
+eureka:
+  client:
+    service-url: ${EUREKA_SERVER_URL:http://eureka.server/eureka}
+    register-with-eureka: true
+    fetch-registry: true
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+#management.endpoints.web.exposure.include=health,info,env,beans,loggers,metrics
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+        
