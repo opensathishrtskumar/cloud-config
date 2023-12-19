@@ -1,0 +1,36 @@
+spring:
+  json:
+    trusted:
+      packages: '*'
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: kafka-consumer1
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  webflux:
+    base-path: /kafka
+
+eureka:
+  client:
+    service-url: 
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}
+    register-with-eureka: true
+    fetch-registry: true
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+        
